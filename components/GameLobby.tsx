@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Difficulty } from '../types';
-import { Terminal, Cpu, Shield, Zap } from 'lucide-react';
+import { Terminal, Cpu, Shield, Zap, Github } from 'lucide-react';
 
 interface GameLobbyProps {
   onStart: (difficulty: Difficulty, topic: string) => void;
@@ -34,8 +34,8 @@ export const GameLobby: React.FC<GameLobbyProps> = ({ onStart }) => {
   const [selectedTopic, setSelectedTopic] = useState<string>(TOPICS[0]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-2 md:p-4 bg-cyber-black bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyber-dark to-cyber-black">
-      <div className="max-w-2xl w-full bg-cyber-panel/50 backdrop-blur-md border border-cyber-neon/30 rounded-2xl p-4 md:p-8 shadow-2xl shadow-cyber-neon/10 max-h-[95vh] flex flex-col">
+    <div className="min-h-screen flex items-center justify-center p-2 md:p-4 bg-cyber-black bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyber-dark to-cyber-black relative overflow-hidden">
+      <div className="max-w-2xl w-full bg-cyber-panel/50 backdrop-blur-md border border-cyber-neon/30 rounded-2xl p-4 md:p-8 shadow-2xl shadow-cyber-neon/10 max-h-[90vh] flex flex-col z-10">
         <div className="text-center mb-4 md:mb-6 shrink-0">
           <div className="inline-flex items-center justify-center p-3 md:p-4 bg-cyber-neon/10 rounded-full mb-2 md:mb-4 ring-1 ring-cyber-neon/50">
             <Terminal className="w-8 h-8 md:w-12 md:h-12 text-cyber-neon" />
@@ -102,6 +102,12 @@ export const GameLobby: React.FC<GameLobbyProps> = ({ onStart }) => {
             Initialize Sequence
           </button>
         </div>
+      </div>
+
+      <div className="absolute bottom-2 left-0 right-0 text-center p-2 z-0">
+        <p className="text-cyber-dim text-[10px] md:text-xs font-mono flex items-center justify-center gap-2">
+          created by <a href="https://github.com/ramunarlapati-13" target="_blank" rel="noopener noreferrer" className="text-cyber-neon hover:text-white transition-colors flex items-center gap-1"><Github size={12} /> ramunarlapati</a> @2025
+        </p>
       </div>
     </div>
   );

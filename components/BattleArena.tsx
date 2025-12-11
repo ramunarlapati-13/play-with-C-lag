@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Player, Challenge, Difficulty, BattleLog } from '../types';
 import { CodeBlock } from './CodeBlock';
 import { generateChallenge } from '../services/geminiService';
-import { Timer, Heart, Cpu, Send, AlertTriangle, CheckCircle, XCircle, Terminal as TerminalIcon, RotateCcw } from 'lucide-react';
+import { Timer, Heart, Cpu, Send, AlertTriangle, CheckCircle, XCircle, Terminal as TerminalIcon, RotateCcw, Github } from 'lucide-react';
 
 interface BattleArenaProps {
   difficulty: Difficulty;
@@ -147,7 +147,7 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ difficulty, topic, onE
   if (gameStatus === 'GAMEOVER') {
     const isWin = player.health > 0;
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-cyber-black text-center p-8">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-cyber-black text-center p-8 relative">
         <div className={`text-4xl md:text-6xl mb-6 ${isWin ? 'text-cyber-neon' : 'text-cyber-red'} font-black tracking-widest`}>
           {isWin ? 'SYSTEM SECURE' : 'CRITICAL FAILURE'}
         </div>
@@ -167,6 +167,12 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ difficulty, topic, onE
         <button onClick={onExit} className="px-8 py-3 bg-cyber-panel border border-cyber-neon text-cyber-neon rounded hover:bg-cyber-neon hover:text-black transition-colors font-mono">
           Return to Lobby
         </button>
+
+        <div className="absolute bottom-4 left-0 right-0 text-center">
+            <p className="text-cyber-dim text-[10px] md:text-xs font-mono flex items-center justify-center gap-2">
+              created by <a href="https://github.com/ramunarlapati-13" target="_blank" rel="noopener noreferrer" className="text-cyber-neon hover:text-white transition-colors flex items-center gap-1"><Github size={12} /> ramunarlapati</a> @2025
+            </p>
+        </div>
       </div>
     );
   }
