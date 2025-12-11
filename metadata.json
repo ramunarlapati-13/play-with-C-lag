@@ -1,0 +1,5 @@
+{
+  "name": "C-Arena: Realtime Duel",
+  "description": "A competitive C programming learning game where you battle against an AI opponent in real-time coding trivia and logic challenges.",
+  "requestFramePermissions": []
+}
